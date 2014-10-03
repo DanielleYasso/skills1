@@ -29,12 +29,18 @@ def long_words(word_list):
 
 # Write a function that finds the smallest element in a list of integers and returns it.
 def smallest(number_list):
-    smallest = min(number_list)
+    smallest = number_list[0]
+    for number in number_list[1:]:
+        if number < smallest:
+            smallest = number
     return smallest
 
 # Write a function that finds the largest element in a list of integers and returns it.
 def largest(number_list):
-    largest = max(number_list)
+    largest = number_list[0]
+    for number in number_list:
+        if number > largest:
+            largest = number
     return largest
 
 # Write a function that takes a list of numbers and returns a new list of all those numbers divided by two.
@@ -75,10 +81,7 @@ def join_strings(word_list):
 
 # Write a function that takes a list of integers and returns the average (without using the avg method)
 def average(number_list):
-    total = 0
-    for number in number_list:
-        total += number
-    average = total / len(number_list)
+    average = sum_numbers(number_list) / len(number_list)
     return average
 
 print all_odd(number_list)
