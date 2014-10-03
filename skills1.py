@@ -3,6 +3,46 @@
 number_list = [-5, 6, 4, 8, 15, 16, 23, 42, 2, 7]
 word_list = [ "What", "about", "the", "Spam", "sausage", "spam", "spam", "bacon", "spam", "tomato", "and", "spam"]
 
+print "*******************"
+
+print "Using filter, map, and reduce:"
+
+# all_odd, all_even, long_words
+print "Odds: ", filter((lambda x: x % 2 != 0), number_list)
+print "Evens: ", filter((lambda x: x % 2 == 0), number_list)
+print "Long words: ", filter((lambda x: len(x) >= 4), word_list)
+
+# smallest, largest
+print "Smallest: ", reduce((lambda x, y: x if x < y else y), number_list)
+print "Largest: ", reduce((lambda x, y: x if x > y else y), number_list)
+
+# halvsies, word_length
+print "Halvsies: ", map((lambda x: x / 2.0), number_list)
+print "Word length: ", map((lambda x: len(x)), word_list)
+
+# sum, multiply, join, average
+print "Sum: ", reduce((lambda x, y: x + y), number_list)
+print "Multiply: ", reduce((lambda x, y: x * y), number_list)
+print "Join: ", reduce((lambda x, y: x + " " + y), word_list)
+print "Average: ", reduce((lambda x, y: x + y), number_list) / len(number_list)
+
+print "*******************"
+
+print "Using list comprehension:"
+
+# all_odd, all_even, long_words
+print "Odds: ", [x for x in number_list if x % 2 != 0]
+print "Evens: ", [x for x in number_list if x % 2 == 0]
+print "Long words: ", [x for x in word_list if len(x) >= 4]
+
+# halvsies, word_length
+print "Halvsies: ", [x / 2.0 for x in number_list]
+print "Word length: ", [len(x) for x in word_list]
+
+print "*******************"
+
+print "Using all separate funcitons:"
+
 # Write a function that takes a list of numbers and returns a new list with only the odd numbers.
 def all_odd(number_list):
     new_list = []
@@ -84,14 +124,14 @@ def average(number_list):
     average = sum_numbers(number_list) / len(number_list)
     return average
 
-print all_odd(number_list)
-print all_even(number_list)
-print long_words(word_list)
-print smallest(number_list)
-print largest(number_list)
-print halvesies(number_list)
-print word_lengths(word_list)
-print sum_numbers(number_list)
-print mult_numbers(number_list)
-print join_strings(word_list)
-print average(number_list)
+print "Odds: ", all_odd(number_list)
+print "Evens: ", all_even(number_list)
+print "Long words: ", long_words(word_list)
+print "Smallest: ", smallest(number_list)
+print "Largest: ", largest(number_list)
+print "Halvsies: ", halvesies(number_list)
+print "Word length: ", word_lengths(word_list)
+print "Sum: ", sum_numbers(number_list)
+print "Multiply: ", mult_numbers(number_list)
+print "Join: ", join_strings(word_list)
+print "Average: ", average(number_list)
