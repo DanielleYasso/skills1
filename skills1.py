@@ -3,6 +3,12 @@
 number_list = [-5, 6, 4, 8, 15, 16, 23, 42, 2, 7]
 word_list = [ "What", "about", "the", "Spam", "sausage", "spam", "spam", "bacon", "spam", "tomato", "and", "spam"]
 
+# make my own filter function
+def filter(my_function, list):
+    return my_function(list)
+
+print filter((lambda x: x % 2 != 0), number_list))
+
 print "*******************"
 
 print "Using filter, map, and reduce:"
@@ -21,10 +27,11 @@ print "Halvsies: ", map((lambda x: x / 2.0), number_list)
 print "Word length: ", map((lambda x: len(x)), word_list)
 
 # sum, multiply, join, average
-print "Sum: ", reduce((lambda x, y: x + y), number_list)
+sum_function = lambda x, y: x + y
+print "Sum: ", reduce(sum_function, number_list)
 print "Multiply: ", reduce((lambda x, y: x * y), number_list)
 print "Join: ", reduce((lambda x, y: x + " " + y), word_list)
-print "Average: ", reduce((lambda x, y: x + y), number_list) / len(number_list)
+print "Average: ", reduce(sum_function, number_list) / len(number_list)
 
 print "*******************"
 
